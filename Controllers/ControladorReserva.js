@@ -5,6 +5,7 @@
 //4. Enviar las respuestas al cliente
 
 //Importo els ervicio
+import {NegocioReserva} from '../negocio/NegocioReserva.js'
 import {ServicioReserva} from '../services/ServicioReserva.js'
 
 export class ControladorReserva{
@@ -59,11 +60,14 @@ export class ControladorReserva{
     async registrar(request,response){
 
         let servicioReserva= new ServicioReserva()
+        let negocioReserva=new NegocioReserva()
 
         let datosPeticion=request.body
+
         try{
 
-            await servicioReserva.registrar(datosPeticion)
+            //await servicioReserva.registrar(datosPeticion)
+            await negocioReserva.calcularPrecio(datosPeticion)
             response.status(200).json({
                 mensaje:"Exito agregando la Reserva",
                 data:null,

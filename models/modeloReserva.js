@@ -29,6 +29,10 @@ const Reserva=new Schema({
     cantidad_personas:{
         type:Number,
         required:true
+    },
+    precio_reserva:{
+        type:Number,
+        required:false
     }
 })
 
